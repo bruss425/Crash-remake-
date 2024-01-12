@@ -1,0 +1,13 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "/Users/benrussell/Downloads/**/*.jar"
+        ],
+        "exclude": [
+            "/Users/benrussell/Downloads/bus.jar",
+            "/Users/benrussell/Downloads/core.jar",
+            "/Users/benrussell/Downloads/p02core.jar"
+        ]
+    }
+}

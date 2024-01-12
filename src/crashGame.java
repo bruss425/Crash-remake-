@@ -1,4 +1,6 @@
 import java.util.Random;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Arrays;
 
 public class crashGame {
@@ -6,7 +8,7 @@ public class crashGame {
     public static void main(String[] args) {
         // eventually will replace with user imput 
         double userBet = 100.0;// example for testing 
-        System.out.println(bettingTest(userBet, 2, 500));
+         System.out.println(bettingTest(userBet, 1.5, 500));
 
         // testing 100 dollar unit, 1.2 cash out and 100 test
         // user was, +440, -160, -760, - 640, +80 
@@ -29,6 +31,9 @@ public class crashGame {
          // testing 100 dollar unit, 2 cash out, 500 test
         // user was: -10,800
 
+        // ^^^ this is before I changed the odds 
+        // odds are in line with those numbers 
+
 
 
 
@@ -43,7 +48,7 @@ public class crashGame {
     }
 
     // Method to generate a random multiplier based on specified probabilities
-    private static double generateRandomMultiplier() {
+    public static double generateRandomMultiplier() {
         // Create an instance of the Random class
         // helps create new random seed 
         Random random = new Random(System.currentTimeMillis());
@@ -87,13 +92,30 @@ public class crashGame {
                 // Map the random number within the range to a random multiplier
                 double lowerBound = range[0];
                 double upperBound = range[1];
-                return random.nextDouble() * (upperBound - lowerBound) + lowerBound;
+                // create number
+                double value = random.nextDouble() * (upperBound - lowerBound) + lowerBound;
+                // rounding
+                value = round(value, 2);
+                return value;
             }
         }
 
         // If no specific range is matched, return 1.0 as a default multiplier
         return 1.0;
     }
+
+    // from stackoverflow.com
+    // https://stackoverflow.com/questions/2808535/round-a-double-to-2-decimal-places
+    private static double round(double value, int places) {
+    if (places < 0) throw new IllegalArgumentException();
+
+    BigDecimal bd = BigDecimal.valueOf(value);
+    bd = bd.setScale(places, RoundingMode.HALF_UP);
+    return bd.doubleValue();
+    }
+
+
+
     // make a test to find the median multiplier of a certain sample range to see where my math leads 
     public static double medianTest (int sampleSize){
         double numArr[] = new double[sampleSize];

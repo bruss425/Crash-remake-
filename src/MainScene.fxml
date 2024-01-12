@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <BorderPane prefHeight="35.0" prefWidth="640.0" style="-fx-background-color: #7086b5;">
+         <left>
+            <Label text="CRASH" textAlignment="CENTER" textFill="#d0f3f5f2" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Avenir Heavy Oblique" size="20.0" />
+               </font>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </Label>
+         </left>
+         <right>
+            <Button mnemonicParsing="false" onAction="#exit" style="-fx-background-color: #43629d;" text="EXIT" textFill="WHITE" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
+               </padding>
+               <effect>
+                  <DropShadow height="15.1" radius="7.7875" width="18.05">
+                     <color>
+                        <Color red="0.1315789520740509" green="0.1254873275756836" blue="0.1254873275756836" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <BorderPane.margin>
+                  <Insets right="10.0" />
+               </BorderPane.margin>
+            </Button>
+         </right>
+         <center>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label style="-fx-background-color: #43629d; -fx-background-radius: 5;" text="\$0.00" textFill="#fff2f2">
+                     <HBox.margin>
+                        <Insets bottom="2.0" right="3.0" top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <Glow level="0.28" />
+                     </effect>
+                  </Label>
+                  <Button mnemonicParsing="false" style="-fx-background-radius: 5; -fx-background-color: #90EE90;" text="DEPOSIT" textFill="#757272">
+                     <HBox.margin>
+                        <Insets bottom="2.0" right="3.0" top="3.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="7.0" right="7.0" top="5.0" />
+                     </padding>
+                     <effect>
+                        <Glow level="0.16">
+                           <input>
+                              <Lighting diffuseConstant="1.48" specularConstant="0.0" specularExponent="5.67">
+                                 <bumpInput>
+                                    <Shadow radius="13.685" width="35.74" />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant>
+                                       <color>
+                                          <Color red="0.47660818696022034" green="0.6315789222717285" blue="0.48952242732048035" />
+                                       </color>
+                                    </Light.Distant>
+                                 </light>
+                              </Lighting>
+                           </input>
+                        </Glow>
+                     </effect>
+                     <font>
+                        <Font name="Arial Hebrew" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="230.0" />
+               </BorderPane.margin>
+            </HBox>
+         </center>
+      </BorderPane>
+   </children>
+</VBox>
