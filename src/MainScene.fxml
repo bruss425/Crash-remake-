@@ -8,15 +8,17 @@
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<VBox alignment="TOP_CENTER" prefHeight="320.0" prefWidth="200.0" style="-fx-background-color: #43629d;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <BorderPane prefHeight="35.0" prefWidth="640.0" style="-fx-background-color: #7086b5;">
+      <BorderPane prefHeight="35.0" prefWidth="640.0" style="-fx-background-color: #7086b5; -fx-border-color: GREY;">
          <left>
             <Label text="CRASH" textAlignment="CENTER" textFill="#d0f3f5f2" BorderPane.alignment="CENTER">
                <font>
@@ -31,7 +33,7 @@
             </Label>
          </left>
          <right>
-            <Button mnemonicParsing="false" onAction="#exit" style="-fx-background-color: #43629d;" text="EXIT" textFill="WHITE" BorderPane.alignment="CENTER">
+            <Button id="exitBtn" fx:id="exitBtn" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: #43629d;" stylesheets="@style.css" text="EXIT" textFill="WHITE" BorderPane.alignment="CENTER">
                <padding>
                   <Insets bottom="4.0" left="20.0" right="20.0" top="4.0" />
                </padding>
@@ -64,7 +66,7 @@
                         <Glow level="0.28" />
                      </effect>
                   </Label>
-                  <Button mnemonicParsing="false" style="-fx-background-radius: 5; -fx-background-color: #90EE90;" text="DEPOSIT" textFill="#757272">
+                  <Button mnemonicParsing="false" onAction="#depositScreen" style="-fx-background-radius: 5; -fx-background-color: #90EE90;" text="DEPOSIT" textFill="#757272">
                      <HBox.margin>
                         <Insets bottom="2.0" right="3.0" top="3.0" />
                      </HBox.margin>
@@ -100,5 +102,47 @@
             </HBox>
          </center>
       </BorderPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <StackPane layoutX="212.0" prefHeight="367.0" prefWidth="428.0" style="-fx-background-color: #6885ef;">
+               <children>
+                  <Label id="multiplierLabel" fx:id="multiplierLabel" text="0.00x" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+            <VBox prefHeight="367.0" prefWidth="213.0">
+               <children>
+                  <AnchorPane prefHeight="212.0" prefWidth="213.0" />
+                  <AnchorPane prefHeight="47.0" prefWidth="213.0">
+                     <children>
+                        <StackPane prefHeight="44.0" prefWidth="213.0">
+                           <children>
+                              <Button id="startCrashBtn" fx:id="startCrashBtn" mnemonicParsing="false" onAction="#runCrash" prefHeight="40.0" prefWidth="207.0" style="-fx-background-color: #f09609;" text="Start Crash ">
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
+                                 <effect>
+                                    <DropShadow height="12.16" radius="4.8425" width="9.21">
+                                       <color>
+                                          <Color red="0.6312134265899658" green="0.6667945981025696" blue="0.8684210777282715" />
+                                       </color>
+                                    </DropShadow>
+                                 </effect>
+                                 <font>
+                                    <Font name="Arial Hebrew" size="20.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="89.0" prefWidth="213.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
    </children>
 </VBox>

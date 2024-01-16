@@ -5,8 +5,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class App extends Application {
+    public static Stage primaryStage;
     @Override
     public void start(Stage primaryStage) {
+       // this.primaryStage = primaryStage;
         try {
             // Create an FXMLLoader instance to load the FXML file
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
@@ -22,6 +24,7 @@ public class App extends Application {
 
             // Create a new scene with the loaded root element
             Scene scene = new Scene(root);
+           // scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
             // Set the title of the main stage
             primaryStage.setTitle("Crash");
@@ -42,3 +45,4 @@ public class App extends Application {
         launch(args);
     }
 }
+
