@@ -8,7 +8,7 @@ public class App extends Application {
     public static Stage primaryStage;
     @Override
     public void start(Stage primaryStage) {
-       // this.primaryStage = primaryStage;
+        this.primaryStage = primaryStage;
         try {
             // Create an FXMLLoader instance to load the FXML file
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
