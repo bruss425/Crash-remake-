@@ -8,14 +8,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -35,6 +32,8 @@ public class Controller {
         this.mainWindow = mainWindow;
     }
 
+    @FXML // fx:id="refesh"
+    private Button refesh; //
 
     @FXML // fx:id="roundOverLabel"
     private Label roundOverLabel; 
@@ -103,7 +102,7 @@ void runCrash(ActionEvent event) {
     Timeline originalTimeline = new Timeline();
 
      // update the labels with new bet values 
-     crashGame.subtractBalance(betAmount);
+    // crashGame.subtractBalance(betAmount);
      updateUI();
      // make the bet not clickable and box not typable 
      betBtn.setDisable(true);
@@ -205,7 +204,7 @@ void runCrash(ActionEvent event) {
         // set calculate how much they won 
         cashoutNum = current * betAmount;
         cashedOut = true; 
-        userBalance += cashoutNum;
+        crashGame.addBalance(cashoutNum);
         updateUI();
     }
 
@@ -216,7 +215,13 @@ void runCrash(ActionEvent event) {
 
     // Validate that the entered amount is a valid double value
     try {
-        betAmount = Double.parseDouble(amountText);
+        double bet = Double.parseDouble(amountText);
+        if(bet > crashGame.getBalance()){
+            System.out.println("Invalid amount entered. Please enter a valid number.");
+        }
+        betAmount = bet;
+        crashGame.subtractBalance(betAmount);
+
 
         // update our labels 
         updateUI(); 
@@ -231,7 +236,7 @@ void runCrash(ActionEvent event) {
 
     private void updateUI() {
         betAmountLabel.setText(String.format("Bet Amount: $%.2f", betAmount));
-        userBalanceLabel.setText(String.format("Balance $%.2f", userBalance));
+        userBalanceLabel.setText(String.format("Balance $%.2f", crashGame.getBalance()));
         // for reseting before the round 
         
     }
@@ -260,8 +265,9 @@ void runCrash(ActionEvent event) {
 
         // Validate that the entered amount is a valid double value
         try {
-            userBalance += Double.parseDouble(fundsText);
-            System.out.println(userBalance);
+            
+            double temp = Double.parseDouble(fundsText);
+            crashGame.addBalance(temp);
     
             // update our labels 
             //updateUI(); 
@@ -274,6 +280,11 @@ void runCrash(ActionEvent event) {
         }
     }
 
+    @FXML
+    void refresh(ActionEvent event) {
+        updateUI();
+    }
+
 
 
     @FXML // fx:id="exitBtn"
@@ -281,7 +292,7 @@ void runCrash(ActionEvent event) {
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {        
-        userBalance = 0.0;
+        crashGame.setBalance(0.0);
         betAmount = 0.0; 
     }
 }

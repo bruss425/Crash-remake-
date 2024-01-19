@@ -181,7 +181,7 @@ public class crashGame {
     }
 
     // method for controlling the user balanc 
-    public double getBalance(){
+    public static double getBalance(){
         return userBalance; 
     }
     public static void setBalance(double amount){

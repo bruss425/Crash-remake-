@@ -16,5 +16,20 @@ Button#startCrashBtn:hover {
 
 }
 
+Button#betBtn:hover {
+    -fx-border-color: #5577b9; /* Set the border color to your desired shade */
+    -fx-border-width: 2px;   /* Adjust the border width as needed */
+    -fx-border-style: solid; /* Choose the border style (solid, dashed, etc.) */
+    cursor: pointer;
+    -fx-transition: border 0.2s ease-in-out; /* Adjust duration and easing as desired */
+}
+
+Button#deposit2:hover {
+    -fx-border-color: #5577b9; /* Set the border color to your desired shade */
+    -fx-border-width: 2px;   /* Adjust the border width as needed */
+    -fx-border-style: solid; /* Choose the border style (solid, dashed, etc.) */
+    cursor: pointer;
+    -fx-transition: border 0.2s ease-in-out; /* Adjust duration and easing as desired */
+}
 
 
