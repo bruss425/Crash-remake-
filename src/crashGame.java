@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 public class crashGame {
 
+    private static double userBalance; 
+
     public static void main(String[] args) {
         // eventually will replace with user imput 
         double userBet = 100.0;// example for testing 
@@ -177,4 +179,20 @@ public class crashGame {
 
         return dollars; 
     }
+
+    // method for controlling the user balanc 
+    public double getBalance(){
+        return userBalance; 
+    }
+    public static void setBalance(double amount){
+        userBalance = amount;
+    }
+    public static void addBalance(double amount){
+        userBalance += amount;
+    }
+    public static void subtractBalance(double amount){
+        userBalance -= amount;
+    }
+
+
 }
